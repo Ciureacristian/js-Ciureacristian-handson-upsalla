@@ -17,8 +17,30 @@
   <script src="https://tab.pixellab.ro/pixeltab-top.js"></script>
 </head>
 
-<body>
+<body onload="console.log(prompt('Care este numele tau?'))">
 
+  <button
+    title="Hello"
+    onclick="alert('Bine ai venit la Pixellab!')"
+  >Hello!</button>
+
+  <button
+    title="Apasa"
+    onclick="alert('Tocmai ai apasat pe acest buton!')"
+  >Acest buton</button>
+
+  <button
+    title="Suma"
+    onclick="console.log(20 + 156)"
+  >Suma
+  </button>
+
+  <button
+    title="Apasa-l"
+    onmouseover="console.log('M-ai apasat!')"
+  >
+    Apasa-ma!
+  </button>
 
   <div
     class="pixeltab-host"
