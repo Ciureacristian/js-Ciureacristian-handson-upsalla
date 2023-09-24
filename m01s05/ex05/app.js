@@ -28,3 +28,24 @@ Afiseaza propozita: “Ma numesc xxx si am yy ani!”
 `);
 const firstName = person.getName();
 console.log(`Ma numesc ${firstName} si am ${person.getAge()} ani.`);
+
+console.warn(`Afiseaza numele intreg al persoanei folosind metoda getName()
+`);
+const fullName = person.getName();
+console.log(`${fullName}`);
+
+console.warn(`Afiseaza varsta persoanei folosind metoda getAge()
+`);
+const age = person.getAge();
+console.log(`${age}`);
+
+console.warn(`Afiseaza anul de nastere al persoanei, intr-o propozitie de felul “M-am nascut in aaaa.”
+`);
+const birtdayYear = currentYear - person.getAge();
+console.log(`M-am nascut in ${birtdayYear}.`);
+
+console.warn(`Afiseaza propozita: “Ma numesc xxx yyy m-am nascut acum aa ani in anul zzzz!”
+`);
+console.log(
+  `Ma numesc ${person.getName()} m-am nascut acum ${person.getAge()} ani in anul ${birtdayYear}!`,
+);

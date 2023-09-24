@@ -24,3 +24,31 @@ Afiseaza anul de nastere al persoanei folosind anul curent.
 `);
 const cuurentYear = new Date().getFullYear();
 console.log([cuurentYear - accessor('Age')].toString());
+
+console.warn(`Afiseaza propozitia “Ma numesc xxx yyy, am aa ani si m-am nascut in anul aaaa.”
+`);
+console.log(
+  `Ma numesc ${person.getName()}, am ${person.getAge()} ani si m-am nascut in anul ${[
+    cuurentYear - accessor('Age'),
+  ].toString()}.`,
+);
+
+console.warn(`Folosind accesorul afiseaza numele persoanei.
+`);
+console.log(`${person.getName()}`);
+
+console.warn(`Afiseaza varsta persoanei.
+`);
+console.log(`${person.getAge()}`);
+
+console.warn(`
+Afiseaza anul de nastere al persoanei folosind anul curent.
+ Intr-o propozitie de forma “M-am nascut in 1987.”
+`);
+const currentYear = new Date().getFullYear();
+const birtdayYear = currentYear - person.getAge();
+console.log(`M-am nascut in ${birtdayYear}.`);
+
+console.warn(`Afiseaza propozitia “Ma numesc xxx yyy si am aa ani!”
+`);
+console.log(`Ma numesc ${person.getName()} si am ${person.getAge()} ani!`);
