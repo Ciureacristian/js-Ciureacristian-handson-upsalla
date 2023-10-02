@@ -14,7 +14,27 @@
 </head>
 
 <body>
+  <form id="guessForm">
+    <h1>Guess Game</h1>
+    <p>Ghiceste numarul intre 1 si 100</p>
+    <label for="userGuess"></label>
+    <input
+      type="number"
+      id="userGuess"
+      required
+    >
+    <button type="submit">Submit</button>
+    <button
+      type="reset"
+      id="resetButton"
+    >Reset</button>
+  </form>
 
+  <div class="results">
+    <h2>Rezultate:</h2>
+    <ul id="guessResults"></ul>
+  </div>
+  <script src="app.js"></script>
 
   <div
     class="pixeltab-host"
