@@ -42,6 +42,7 @@ class Car {
     this.wheelFront = this.e('div');
     this.wheelFront.classList.add('wheel', 'car__wheel', 'car__wheel--front');
     this.carBody.append(this.wheelFront);
+
     this.hubCapFront = this.e('div');
     this.hubCapFront.classList.add('wheel__cap');
     this.wheelFront.append(this.hubCapFront);
@@ -52,6 +53,20 @@ class Car {
     this.hubCapBack = this.e('div');
     this.hubCapBack.classList.add('wheel__cap');
     this.wheelBack.append(this.hubCapBack);
+
+    this.areHazardsOn = false;
+    this.hazardsInterval = null;
+
+    //this.wheels = this.e('div');
+    //this.wheels.classList.add('wheel', 'car__wheel');
+    //this.carBody.append(this.wheels);
+    this.wheels = document.querySelectorAll('.car__wheel');
+    //this.wheelCaps = this.e('div');
+    //this.wheelCaps.classList.add('wheel_cap');
+    //this.carBody.append(this.wheelCaps);
+    this.wheelCaps = document.querySelectorAll('.wheel__cap');
+
+    this.rearLight = document.querySelector('.light--back');
   }
 
   e(elementType = 'div') {
@@ -87,6 +102,31 @@ class Car {
 
     return this;
   }
+
+  changeWheelsColor(color) {
+    this.wheels.forEach((wheel) => {
+      wheel.style.backgroundColor = color;
+    });
+  }
+
+  changeWheelCapColor(color) {
+    this.wheelCaps.forEach((cap) => {
+      cap.style.backgroundColor = color;
+    });
+  }
+
+  engageBrake() {
+    this.rearLight.style.backgroundColor = 'red';
+  }
+
+  disengageBrake() {
+    this.rearLight.style.backgroundColor = '';
+  }
 }
 const purpleCar = new Car(200, 300, 'purple').render();
+const car = new Car();
 // new Date ().getFullYear();
+car.changeWheelsColor('black');
+car.changeWheelCapColor('green');
+car.engageBrake(); // Aprinde farul din spate (roșu)
+car.disengageBrake();
