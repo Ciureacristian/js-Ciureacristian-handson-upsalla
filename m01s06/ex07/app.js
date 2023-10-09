@@ -10,13 +10,13 @@ document
     attempts++;
 
     if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
-      alert('Te rog introdu un număr valid între 1 și 100.');
+      alert('Te rog introdu un numar valid intre 1 si 100.');
     } else if (userGuess < myGuess) {
-      guessResultsList.innerHTML += `<li>Încercare ${attempts}: ${userGuess} - Numărul este prea mic.</li>`;
+      guessResultsList.innerHTML += `<li>Incercare ${attempts}: ${userGuess} - Numarul este prea mic.</li>`;
     } else if (userGuess > myGuess) {
-      guessResultsList.innerHTML += `<li>Încercare ${attempts}: ${userGuess} - Numărul este prea mare.</li>`;
+      guessResultsList.innerHTML += `<li>Incercare ${attempts}: ${userGuess} - Numarul este prea mare.</li>`;
     } else {
-      guessResultsList.innerHTML += `<li>Încercare ${attempts}: ${userGuess} - Felicitări! Ai ghicit numărul corect.</li>`;
+      guessResultsList.innerHTML += `<li>Incercare ${attempts}: ${userGuess} - Felicitari! Ai ghicit numarul corect.</li>`;
       document.getElementById('userGuess').disabled = true;
     }
   });
@@ -29,21 +29,3 @@ document.getElementById('resetButton').addEventListener('click', function () {
   userGuessInput.value = '';
 });
 
-/*let myGuess = Math.floor(Math.random() * 100) + 1;
-
-function checkGuess() {
-  const userGuess = document.getElementById('userGuess').value;
-  const message = document.getElementById('message');
-
-  if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
-    message.textContent = 'Te rog introdu un număr valid între 1 și 100.';
-  } else {
-    if (userGuess < myGuess) {
-      message.textContent = 'Numarul este prea mic';
-    } else if (userGuess > myGuess) {
-      message.textContent = 'Numarul este prea mare';
-    } else {
-      message.textContent = `Felicitari!! Ai ghicit ${myGuess}.`;
-    }
-  }
-}*/
