@@ -31,39 +31,19 @@ var person = {
     },
   ],
 };
-console.warn(`Intre Larry si Steven este o diferenta de x ani.
-`);
-var larryAge = person.friends.find((friend) => friend.name === 'Larry').age;
-var stevenAge = person.friends.find((friend) => friend.name === 'Steven').age;
-var ageDifference = Math.abs(larryAge - stevenAge);
-console.log(`Intre Larry si Steven este o diferenta de ${ageDifference} ani.`);
 
-console.warn(`Intre Larry si Carol este o diferenta de x ani.`);
-var larryAge = person.friends.find((friend) => friend.name === 'Larry').age;
-var carolAge = person.friends.find((friend) => friend.name === 'Carol').age;
-var ageDifference = Math.abs(larryAge - carolAge);
-console.log(`Intre Larry si Carol este o diferenta de ${ageDifference} ani.`);
+const length = person.friends.length;
+for (let i = 0; i < length; ++i) {
+  const outterFriend = person.friends[i];
 
-console.warn(`Intre Steven si Larry este o diferenta de y ani`);
-var stevenAge = person.friends.find((friend) => friend.name === 'Steven').age;
-var larryAge = person.friends.find((friend) => friend.name === 'Larry').age;
-var ageDifference = Math.abs(stevenAge - larryAge);
-console.log(`Intre Steven si Larry este o diferenta de ${ageDifference} ani.`);
+  for (let j = 0; j < length; ++j) {
+    if (i === j) {
+      continue;
+    }
+    const innerFriend = person.friends[j];
+    const ageDifference = Math.abs(outterFriend.age - innerFriend.age);
+    const message = `Intre ${outterFriend.name} si ${innerFriend.name} este o diferenta de ${ageDifference} ani.`;
 
-console.warn(`Intre Steven si Carol este o diferenta de z ani.`);
-var stevenAge = person.friends.find((friend) => friend.name === 'Steven').age;
-var carolAge = person.friends.find((friend) => friend.name === 'Carol').age;
-var ageDifference = Math.abs(stevenAge - carolAge);
-console.log(`Intre Steven si Carol este o diferenta de ${ageDifference} ani.`);
-
-console.warn(`Intre carol si larry `);
-var carolAge = person.friends.find((friend) => friend.name === 'Carol').age;
-var larryAge = person.friends.find((friend) => friend.name === 'Larry').age;
-var ageDifference = Math.abs(carolAge - larryAge);
-console.log(`Intre Carol si Larry este o diferenta de ${ageDifference} ani.`);
-
-console.warn(`Intre carol si steven`);
-var carolAge = person.friends.find((friend) => friend.name === 'Carol').age;
-var stevenAge = person.friends.find((friend) => friend.name === 'Steven').age;
-var ageDifference = Math.abs(carolAge - stevenAge);
-console.log(`Intre Carol si Steven este o diferenta de ${ageDifference} ani.`);
+    console.log(message);
+  }
+}

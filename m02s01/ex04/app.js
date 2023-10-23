@@ -8,6 +8,10 @@
 // left: 100, top:200; background:purple;
 
 class Car {
+  //clases are sintantic sugar
+  isLightOn = false;
+  intervalId = -1;
+
   constructor(left = 10, top = 10, color = 'black') {
     this.positionX = left;
     this.positionY = top;
@@ -76,12 +80,35 @@ class Car {
 
   turnLightOn() {
     this.lightFront.classList.add('light--on');
+    this.isLightOn = true;
+
+    return this;
   }
 
   turnLightOff() {
     this.lightFront.classList.remove('light--on');
+    this.isLightOn = false;
 
     return this;
+  }
+
+  toggleHazards() {
+    if (this.intervalId > 0) {
+      //stop interval
+      clearInterval(this.intervalId);
+      this.intervalId = -1;
+
+      return;
+    }
+    // metida de prezervare a this
+    // post 2016
+    this.intervalId = setInterval(() => {
+      if (this.isLightOn === true) {
+        this.turnLightOff();
+      } else {
+        this.turnLightOn();
+      }
+    }, 800);
   }
 
   move(top, left) {
@@ -128,5 +155,5 @@ const car = new Car();
 // new Date ().getFullYear();
 car.changeWheelsColor('black');
 car.changeWheelCapColor('green');
-car.engageBrake(); // Aprinde farul din spate (roșu)
+car.engageBrake();
 car.disengageBrake();
