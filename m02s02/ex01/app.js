@@ -17,7 +17,9 @@ function renderSkillInput() {
 
   skillInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-      addSkill(skillInput.value);
+      event.stopPropagation();
+      event.preventDefault();
+      addSkill(event.currentTarget);
       skillInput.value = '';
     }
   });
@@ -26,19 +28,27 @@ function renderSkillInput() {
   skillInputButton.title = 'Adauga Skill';
   skillInputButton.innerText = '+';
   skillInputButton.type = 'button';
-
+  skillInputButton.classList.add('addSkillButton');
   const newContainer = document.createElement('div');
   newContainer.classList.add('skill-input-container');
 
-  const addSkillButton = document.createElement('button');
-  addSkillButton.title = 'Adauga Button';
-  addSkillButton.innerText = '+';
-  addSkillButton.type = 'button';
-  addSkillButton.classList.add('addSkillButton');
+  // const addSkillButton = document.createElement('button');
+  // addSkillButton.title = 'Adauga Button';
+  // addSkillButton.innerText = '+';
+  // addSkillButton.type = 'button';
+  // addSkillButton.classList.add('addSkillButton');
 
   // refactor
   skillInputButton.addEventListener('click', function (event) {
-    const button = event.currentTarget;
+    addSkill(event.target);
+  });
+
+  // add keydown addeventlistener pentru skillInput
+
+  //function ptr tema
+  function addSkill(target) {
+    const button = target.parentElement.querySelector('.addSkillButton');
+
     // DOM traversal
     const skillInput = button.previousElementSibling;
     const skillValue = skillInput.value;
@@ -47,11 +57,7 @@ function renderSkillInput() {
     }
 
     button.after(renderSkillsUl(skillValue));
-  });
-
-  // add keydown addeventlistener pentru skillInput
-
-  //function ptr tema
+  }
 
   container.append(skillInput);
   container.append(skillInputButton);
