@@ -22,6 +22,10 @@ stage.addEventListener('mouseover', function () {
 
 stage.addEventListener('mouseout', function () {
   const log = createLog('Mousul nu este pe scena');
+  counter = counter + 1;
+
+  const counterLog = createLog(`Mousul nu mai este pe scena de ${counter} ori`);
 
   logsContainer.append(log);
+  logsContainer.append(counterLog);
 });
