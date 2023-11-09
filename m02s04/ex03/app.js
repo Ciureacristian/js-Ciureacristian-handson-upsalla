@@ -7,6 +7,14 @@ const axisMotionMap = {
   N: {
     y: -1,
   },
+  NW: {
+    x: -1,
+    y: -1,
+  },
+  NE: {
+    x: 1,
+    y: -1,
+  },
   W: {
     x: -1,
   },
@@ -14,6 +22,14 @@ const axisMotionMap = {
     x: 1,
   },
   S: {
+    y: 1,
+  },
+  SE: {
+    x: 1,
+    y: 1,
+  },
+  SW: {
+    x: -1,
     y: 1,
   },
 };
