@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(person);
     postPerson(person).then(() => {
       form.reset();
+      getPersons();
     });
   });
 
